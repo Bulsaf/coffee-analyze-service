@@ -1,4 +1,4 @@
-package com.test.coffee_analyze_service.coffee_arrivals;
+package com.test.coffee_service.coffee_arrivals;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,12 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class ArrivalMessagingService {
 
     private static final String receiveTopic = "${topic.receive-arrival}";
-    private static final String consumerGroupId = "${kafka.consumer.group-id}";
+    private static final String consumerGroupId = "${topic.consumer-group-id}";
     private final ArrivalService arrivalService;
 
     @Transactional
     @KafkaListener(topics = receiveTopic, groupId = consumerGroupId, properties = {
-            "spring.json.value.default.type=com.test.coffee_analyze_service.coffee_arrivals.ArrivalEvent"
+            "spring.json.value.default.type=com.test.coffee_service.coffee_arrivals.ArrivalEvent"
     })
     public ArrivalEvent receiveArrivalEvent(ArrivalEvent newArrivalEvent) {
         log.info("Receive arrival event: {}", newArrivalEvent);

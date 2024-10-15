@@ -1,0 +1,23 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+package com.coffee_analyze_service;
+
+option java_package = 'com.coffee_analyze_service';
+option java_multiple_files = true;
+
+service RoastingCoffeeInfoService{
+  rpc sendCoffeeInfoAfterRoasting(RoastingCoffeeInfoRequest) returns (google.protobuf.Empty) {}
+}
+
+message RoastingCoffeeInfoRequest{
+  uint64 taken_quantity = 1;
+  string variety = 2;
+  uint64 exit_weight = 3;
+  string squad_id = 4;
+}
+
+message ErrorResponse{
+  RoastingCoffeeInfoRequest request = 1;
+  string message = 2;
+}

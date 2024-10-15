@@ -1,4 +1,4 @@
-package com.test.coffee_analyze_service;
+package com.test.coffee_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

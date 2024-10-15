@@ -1,4 +1,4 @@
-package com.test.coffee_analyze_service.coffee_arrivals;
+package com.test.coffee_service.coffee_arrivals;
 
 import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;

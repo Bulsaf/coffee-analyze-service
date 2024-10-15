@@ -1,7 +1,7 @@
-package com.test.coffee_analyze_service.configs;
+package com.test.coffee_service.configs;
 
-import com.fasterxml.jackson.databind.deser.std.StringDeserializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +29,7 @@ public class ArrivalConsumerConfig {
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-        props.put(JsonDeserializer.TRUSTED_PACKAGES, "com.test.coffee_analyze_service.coffee_arrivals");
+        props.put(JsonDeserializer.TRUSTED_PACKAGES, "com.test.coffee__service.coffee_arrivals");
         return new DefaultKafkaConsumerFactory<>(props);
     }
 
